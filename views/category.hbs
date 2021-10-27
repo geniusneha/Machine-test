@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{{>main}}
+{{>navbar}}
+{{!-- {{>edit}} --}}
+<body>
+   
+
+    <div class="container">
+    <h1>Category Page</h1>
+    <hr>
+    <form method="POST">
+         <div class="form-group">
+        {{!-- <label for="exampleFormControlInput1">Email address</label> --}}
+        <input type="text" name='name' class="form-control"  placeholder="Create Category">
+        </div>
+            {{!-- <h2>Category Name: </h2>
+            <input type="text" name='name'> --}}
+            <button type="submit" class="btn btn-success">Save</button>
+    </form>
+    </div>
+    <br>
+
+
+
+<div class="container">
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Category-ID</th>
+    <th scope="col">Category</th>
+    <th scope="col">Operations</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    
+    {{#each category}}
+    <tr>
+      <th scope="row">{{_id}}</th>
+      <td>{{name}}</td>
+      <td>
+        <a href="/cat/del/{{_id}}">Delete</a>
+         <a href="/cat/update/{{_id}}">Edit</a>
+      </td>
+       </tr>
+    {{/each}}
+   
+  </tbody>
+</table>
+
+
+
+</body>
+</html>

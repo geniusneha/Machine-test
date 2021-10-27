@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+ {{>main}}
+ {{>navbar}}
+
+
+<style>
+    .container{
+        padding-top: 70px;
+    };
+    
+</style>
+
+<body>
+
+
+
+<div class="container">
+<table class="table table-bordered" id="mytable">
+  <thead class="thead-dark">
+    <tr>
+      {{!-- <th scope="col">Product-ID</th> --}}
+      <th scope="col">Product</th>
+      {{!-- <th scope="col">Category-ID</th> --}}
+    <th scope="col">Category</th>
+    <th scope="col">Operations</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    
+    
+
+    {{#each product}}
+    <tr>
+      {{!-- <th>{{_id}}</th> --}}
+      <td>{{name}}</td>
+      {{!-- <td>{{category._id}}</td> --}}
+      <td>{{category.name}}</td>
+    <td><a href="/pro/edit/{{_id}}">Edit </a>
+    <a href="/pro/del/{{_id}}">Delete </a></td>
+
+       </tr>
+    {{/each}}
+   
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+{{!-- 
+
+     {{#each product}}
+        <h1>{{name}}</h1>
+        <h3>{{category.name}}</h3>
+    {{/each}} --}}
+     <div class="container mt-4" id="page">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+
+   
+                        {{#if hasPreviousPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="?page=1&limit={{limit}}">First</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{previousPage}}&limit={{limit}}">{{previousPage}}</a>
+                        </li>
+                         {{/if}}
+
+
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{currentPage}}&limit={{limit}}">{{currentPage}}</a>
+                        </li>
+                       
+
+                        {{#if hasNextPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{nextPage}}&limit={{limit}}">{{nextPage}}</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{lastPage}}&limit={{limit}}">Last</a>
+                        </li>
+                       {{/if}}
+
+                            </ul>
+
+
+                          
+
+                </nav>
+            </div>
+        
+           
+        {{#else}}
+        <div class="text-center">
+            <h5>No products found.</h5>
+            <div class="mt-4">
+                <a href="/" class="btn btn-outline-primary">Go Home</a>
+            </div>
+        </div>
+        {{/else}}
+    </div>
+</div>
+
+{{!-- <a href="?page&limit=2" >2</a>
+    <input type="text">
+
+<a class="page-link" href="?page={{nextPage}}&limit=2">{{nextPage}}</a>
+          
+    
+ --}}
+
+
+
+
+
+{{!-- 
+ <form method="post">
+     <input type="text" name='limit'>
+     <input type="submit">
+ </form>
+ --}}
+
+
+
+
+</body>
+
+
+
+
+
+</html>

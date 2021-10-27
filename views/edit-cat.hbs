@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{{>main}}
+{{>navbar}}
+<body>
+   
+
+    <div class="container">
+    <h1>Category Page</h1>
+    <hr>
+    <form method="POST">
+         <div class="form-group">
+        {{!-- <label for="exampleFormControlInput1">Email address</label> --}}
+        <input type="text" name='name' class="form-control"  placeholder="Create Category" value="{{category.name}}">
+        </div>
+            {{!-- <h2>Category Name: </h2>
+            <input type="text" name='name'> --}}
+            <button type="submit" class="btn btn-success">Save</button>
+    </form>
+    </div>
+    <br>
+
+
+
+
+
+
+</body>
+</html>
